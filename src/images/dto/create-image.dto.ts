@@ -1,4 +1,11 @@
-import { IsString, IsNumber, IsOptional, Min, Max, IsUrl } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsOptional,
+  Min,
+  Max,
+  IsUrl,
+} from 'class-validator';
 
 export class CreateImageDto {
   @IsString()

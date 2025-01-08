@@ -23,7 +23,7 @@ export class UsersController {
       const user = await this.usersService.create(createUserDto);
       return {
         message: 'Usuario creado exitosamente',
-        data: user
+        data: user,
       };
     } catch (error) {
       throw new HttpException('Error al crear usuario', HttpStatus.BAD_REQUEST);
@@ -36,10 +36,13 @@ export class UsersController {
       const users = await this.usersService.findAll();
       return {
         message: 'Usuarios encontrados',
-        data: users
+        data: users,
       };
     } catch (error) {
-      throw new HttpException('Error al obtener usuarios', HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException(
+        'Error al obtener usuarios',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 
@@ -52,12 +55,12 @@ export class UsersController {
       }
       return {
         message: 'Usuario encontrado',
-        data: user
+        data: user,
       };
     } catch (error) {
       throw new HttpException(
         error.message || 'Error al obtener usuario',
-        error.status || HttpStatus.INTERNAL_SERVER_ERROR
+        error.status || HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -71,12 +74,12 @@ export class UsersController {
       }
       return {
         message: 'Usuario actualizado exitosamente',
-        data: user
+        data: user,
       };
     } catch (error) {
       throw new HttpException(
         error.message || 'Error al actualizar usuario',
-        error.status || HttpStatus.INTERNAL_SERVER_ERROR
+        error.status || HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -87,12 +90,12 @@ export class UsersController {
       const user = await this.usersService.remove(+id);
       return {
         message: 'Usuario eliminado exitosamente',
-        data: user
+        data: user,
       };
     } catch (error) {
       throw new HttpException(
         'Error al eliminar usuario',
-        HttpStatus.INTERNAL_SERVER_ERROR
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }

@@ -69,7 +69,10 @@ export class ImagesController {
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateImageDto: UpdateImageDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updateImageDto: UpdateImageDto,
+  ) {
     try {
       const image = await this.imagesService.update(+id, updateImageDto);
       return {
